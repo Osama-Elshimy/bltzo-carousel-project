@@ -1,29 +1,21 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { CarouselSlide } from "./CarouselSlide";
-import { CarouselArrow } from "./CarouselArrow";
-import { CarouselIndicators } from "./CarouselIndicators";
 import { useCarouselSwipe } from "@/hooks/useCarouselSwipe";
 import { StaticImageData } from "next/image";
+import React, { useState } from "react";
+import { CarouselArrow } from "./CarouselArrow";
+import { CarouselIndicators } from "./CarouselIndicators";
+import { CarouselSlide } from "./CarouselSlide";
 
 interface CarouselProps {
   slides: {
     url: StaticImageData;
     alt: string;
   }[];
-  autoPlay?: boolean;
-  autoPlayInterval?: number;
 }
 
-export const Carousel: React.FC<CarouselProps> = ({
-  slides,
-  autoPlay = false,
-  autoPlayInterval = 5000,
-}) => {
+export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const { handleTouchStart, handleTouchMove, handleTouchEnd } =
     useCarouselSwipe({
@@ -40,35 +32,13 @@ export const Carousel: React.FC<CarouselProps> = ({
   const prevSlide = () =>
     goToSlide((currentSlide - 1 + slides.length) % slides.length);
 
-  useEffect(() => {
-    if (autoPlay) {
-      autoPlayTimerRef.current = setInterval(nextSlide, autoPlayInterval);
-    }
-    return () => {
-      if (autoPlayTimerRef.current) {
-        clearInterval(autoPlayTimerRef.current);
-      }
-    };
-  }, [autoPlay, autoPlayInterval, currentSlide]);
-
   return (
     <section
       aria-label="Image Slider"
       className="relative h-full w-full"
-      ref={carouselRef}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      onMouseEnter={() => {
-        if (autoPlayTimerRef.current) {
-          clearInterval(autoPlayTimerRef.current);
-        }
-      }}
-      onMouseLeave={() => {
-        if (autoPlay) {
-          autoPlayTimerRef.current = setInterval(nextSlide, autoPlayInterval);
-        }
-      }}
     >
       <a href="#after-image-slider-controls" className="sr-only">
         Skip Image Slider Controls

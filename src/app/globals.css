@@ -25,3 +25,9 @@ body {
     text-wrap: balance;
   }
 }
+
+@media not (prefers-reduced-motion) {
+  .carousel-slide {
+    transition: translate 300ms ease-in-out;
+  }
+}
