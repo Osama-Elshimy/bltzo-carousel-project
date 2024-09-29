@@ -1,33 +1,24 @@
-// src/app/page.tsx
 import React from "react";
+
 import { Carousel } from "@/components/Carousel";
+import car1 from "@/app/assets/car-1.jpg";
+import car2 from "@/app/assets/car-2.jpg";
+import car3 from "@/app/assets/car-3.jpg";
+import car4 from "@/app/assets/car-4.jpg";
+import car5 from "@/app/assets/car-5.jpg";
+
+const IMAGES = [
+  { url: car1, alt: "Car One" },
+  { url: car2, alt: "Car Two" },
+  { url: car3, alt: "Car Three" },
+  { url: car4, alt: "Car Four" },
+  { url: car5, alt: "Car Five" },
+];
 
 const Home: React.FC = () => {
-  const slides = [
-    <div
-      key="1"
-      className="flex h-64 items-center justify-center bg-red-500 text-2xl text-white"
-    >
-      Slide 1
-    </div>,
-    <div
-      key="2"
-      className="flex h-64 items-center justify-center bg-blue-500 text-2xl text-white"
-    >
-      Slide 2
-    </div>,
-    <div
-      key="3"
-      className="flex h-64 items-center justify-center bg-green-500 text-2xl text-white"
-    >
-      Slide 3
-    </div>,
-  ];
-
   return (
     <div className="container mx-auto p-4">
-      <h1 className="mb-4 text-2xl font-bold">Carousel Example</h1>
-      <Carousel slides={slides} />
+      <Carousel slides={IMAGES} />
     </div>
   );
 };
