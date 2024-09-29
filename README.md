@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Carousel Component Project
 
-## Getting Started
+This project implements a simple, elegant carousel component adhering to the SOLID principles. The carousel includes features such as arrow sliding and touch swiping, and is built with accessibility in mind.
 
-First, run the development server:
+## Tech Stack
+
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+## Features
+
+- Arrow Sliding: Users can navigate between slides using left and right arrow buttons.
+- Touch Swiping: Users can seamlessly swipe between slides on touch-enabled devices.
+- Accessibility: The carousel is designed to be accessible to users with disabilities.
+- Responsiveness: The carousel adapts seamlessly to different screen sizes.
+
+## Installation
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Osama-Elshimy/bltzo-carousel-project.git
+cd bltzo-carousel-project
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install the dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Running the Project
 
-## Learn More
+To run the project in development mode:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This will start the development server. Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Building for Production
 
-## Deploy on Vercel
+To create a production build:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To start the production server:
+
+```bash
+pnpm start
+```
